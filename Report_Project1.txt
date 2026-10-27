@@ -1,0 +1,106 @@
+1. Graph Representation
+
+The Campus Route Finder represents the campus as an undirected graph containing eight vertices, each representing a campus location, and edges representing paths between locations.
+
+The eight locations are:
+
+Main Gate
+
+Capgemini Block
+
+Ramanujan Block
+
+Stella Block
+
+Kulhad
+
+Sip And Bite
+
+Rose Garden
+
+Buddha Garden
+
+The graph is implemented using an adjacency list, in which each location stores a list of its directly connected neighbouring locations. Since the graph is undirected, every edge represents a two-way path.
+
+The connections between locations are defined in the C++ source code using the addEdge() function.
+
+
+2. Algorithms Used
+
+**Breadth-First Search (BFS):** BFS uses a queue to explore vertices level by level. A visited array prevents revisiting vertices, while a parent array records the previous vertex on the route. The parent array is used to reconstruct the route from the destination back to the source. BFS finds a route with the minimum number of edges in an unweighted graph.
+
+**Depth-First Search (DFS):** DFS explores a path as deeply as possible before backtracking. This project uses recursion and a visited array to display all locations reachable from a selected starting point.
+
+**Reachability Check:** BFS is used to visit all locations reachable from a selected source. Any location that remains unvisited is reported as unreachable from that source.
+
+3. Sample Input and Output
+
+**Test Case 1: Direct Route**
+
+Input:
+- Menu choice: 2
+- Source: Main Gate (1)
+- Destination: Parking (7)
+
+Output:
+```text
+--- BFS SHORTEST ROUTE ---
+From: Main Gate
+To:   Parking
+Route: Main Gate -> Parking
+Minimum number of edges: 1
+```
+
+**Test Case 2: Multi-Stop Route**
+
+Input:
+- Menu choice: 2
+- Source: Main Gate (1)
+- Destination: Block 2 (4)
+
+Output:
+```text
+--- BFS SHORTEST ROUTE ---
+From: Main Gate
+To:   Block 2
+Route: Main Gate -> Library -> Block 1 -> Block 2
+Minimum number of edges: 3
+```
+
+**Test Case 3: DFS Traversal**
+
+Input:
+- Menu choice: 3
+- Starting location: Main Gate (1)
+
+Expected output: The program displays all eight campus locations in DFS traversal order.
+
+**Test Case 4: Connectivity Check**
+
+Input:
+- Menu choice: 4
+- Starting location: Main Gate (1)
+
+Output:
+```text
+--- CONNECTIVITY REPORT ---
+Starting location: Main Gate
+All campus locations are reachable from Main Gate.
+```
+
+4. Time and Space Complexity
+
+Let V represent the number of vertices (campus locations) and E represent the number of edges (paths).
+
+| Operation | Time Complexity | Auxiliary Space |
+|---|---|---|
+| BFS shortest route | O(V + E) | O(V) |
+| DFS traversal | O(V + E) | O(V) |
+| Reachability check | O(V + E) | O(V) |
+| Adjacency-list storage | — | O(V + E) |
+
+An adjacency matrix requires O(V²) space and generally takes O(V²) time for BFS or DFS because each vertex requires scanning all possible neighbours. An adjacency list is more memory-efficient for sparse graphs.
+
+Conclusion
+
+The Campus Route Finder demonstrates graph representation using an adjacency list and the application of BFS and DFS. BFS finds routes with the minimum number of edges, DFS explores reachable locations, and the connectivity check identifies unreachable locations. The project provides practical experience with graph traversal, queues, recursion, visited arrays, and algorithm complexity.
