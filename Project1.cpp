@@ -19,13 +19,13 @@ public:
 
         locations = {
             "Main Gate",
-            "Library",
-            "Block 1",
-            "Block 2",
-            "Cafeteria",
-            "Auditorium",
-            "Parking",
-            "Lab"
+            "Capgemini Block",
+            "Ramanujan Block",
+            "Stella Block",
+            "Kulhad",
+            "Sip And Bite",
+            "Rose Garden",
+            "Buddha Garden"
         };
 
         adj.resize(V);
@@ -159,7 +159,6 @@ public:
             }
         }
 
-        cout << "\n--- CONNECTIVITY REPORT ---\n";
         cout << "Starting location: "
              << locations[source] << "\n";
 
@@ -205,11 +204,6 @@ public:
 int main() {
     CampusGraph campus;
     int choice;
-
-    cout << "====================================\n";
-    cout << "       CAMPUS ROUTE FINDER\n";
-    cout << "          Using Graphs\n";
-    cout << "====================================\n";
 
     while (true) {
         cout << "\n1. Display Campus Locations";
