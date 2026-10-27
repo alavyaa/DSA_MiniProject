@@ -1,0 +1,56 @@
+1. BST Structure
+
+A Binary Search Tree (BST) is a hierarchical data structure used to store student records. Each node contains a unique enrolment ID, student name, department, and pointers to its left and right children.
+
+The BST follows these rules:
+- IDs smaller than the current node are stored in the left subtree.
+- IDs greater than the current node are stored in the right subtree.
+- Duplicate enrolment IDs are not allowed.
+
+2. Algorithms Used
+
+**Insertion:** The new enrolment ID is compared with existing nodes until an empty position is found. The student record is inserted at that position. Duplicate IDs are rejected.
+
+**Searching:** The enrolment ID is compared with the current node. The search continues to the left or right subtree according to the ID until the record is found or the tree ends.
+
+**Deletion:** Three cases are handled:
+1. Leaf node: delete the node directly.
+2. Node with one child: replace the node with its child.
+3. Node with two children: replace the node's record with its inorder successor and delete the successor.
+
+**Tree Traversals:**
+- Inorder: Left, Root, Right; displays records in ascending ID order.
+- Preorder: Root, Left, Right.
+- Postorder: Left, Right, Root.
+
+3. Test Cases
+
+| Test | Operation | Expected Result |
+|---|---|---|
+| 1 | Insert a new student | Record is inserted successfully |
+| 2 | Insert a duplicate enrolment ID | Duplicate ID message is displayed |
+| 3 | Search for an existing ID | Matching student details are displayed |
+| 4 | Delete a leaf node | Node is removed |
+| 5 | Delete a node with one child | Node is removed and its child is reconnected |
+| 6 | Delete a node with two children | Node is removed while maintaining BST ordering |
+| 7 | Perform inorder traversal | Records appear in ascending ID order |
+| 8 | Compare insertion orders | Tree heights and search comparisons are displayed |
+
+4. Time and Space Complexity
+
+Let \(n\) represent the number of student records and \(h\) represent the height of the tree.
+
+| Operation | Average Time | Worst-Case Time |
+|---|---|---|
+| Insertion | \(O(\log n)\) | \(O(n)\) |
+| Searching | \(O(\log n)\) | \(O(n)\) |
+| Deletion | \(O(\log n)\) | \(O(n)\) |
+| Traversals | \(O(n)\) | \(O(n)\) |
+
+The BST requires \(O(n)\) space to store all student records. Recursive operations use additional stack space of \(O(h)\).
+
+A regular BST may become skewed when records are inserted in sorted order, resulting in \(O(n)\) operations. A self-balancing tree, such as an AVL tree, maintains a height of \(O(\log n)\) and supports efficient operations.
+
+Conclusion
+
+The Student Record Search System demonstrates the use of a Binary Search Tree to manage student records. It supports insertion, searching, deletion, duplicate-ID handling, and tree traversals. Comparing different insertion orders illustrates how tree structure affects search efficiency.
